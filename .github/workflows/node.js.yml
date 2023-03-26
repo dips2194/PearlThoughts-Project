@@ -32,7 +32,7 @@ jobs:
     - name: Set Relase versions
     - run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
     - name: build docker image and push to ecr repo
-      run: |
+      run:
           $(aws ecr get-login --no-include-email --region us-east-1)
           docker build -t ${{ secrets.ECR_REPO_NAME }}/nodeapp:${{ env.RELEASE_VERSION  }} .
           docker push ${{ secrets.ECR_REPO_NAME }}/nodeapp:${{ env.RELEASE_VERSION }}
@@ -40,7 +40,6 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          
     - name: Check tag version
       run: | 
            echo $RELEASE_VERSION
@@ -48,6 +47,6 @@ jobs:
            echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
            echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
     - name: terraform initialization 
-      run: cd devops/ && terraform init 
+      run: cd devops1/ && terraform init 
     - name: terraform deployment
-      run: cd devops/ && terraform apply -var="tag=${{ env.RELEASE_VERSION }}"  -auto-approve
+      run: cd devops1/ && terraform apply -var="tag=${{ env.RELEASE_VERSION }}"  -auto-approve
