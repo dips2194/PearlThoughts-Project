@@ -22,10 +22,6 @@ jobs:
     steps:
     - name: Use Node.js ${{ matrix.node-version }}
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-    - uses: actions/checkout@v3
-    - name: Set Relase version
-      id: vars
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
