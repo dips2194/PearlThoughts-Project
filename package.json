@@ -1,12 +1,10 @@
 {
-  "name": "hello-world",
-  "version": "1.0.0",
   "description": "A simple Hello World example",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js"
     "test": "test src/app.test.js"
   },
-  "author": "Your Name",
+  "author": "Dipak",
   "license": "MIT"
 }
