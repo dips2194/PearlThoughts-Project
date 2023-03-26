@@ -30,7 +30,7 @@ jobs:
     - run: npm test
     - name: Set Relase versions
       id: vars
-    - run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
     - name: build docker image and push to ecr repo
       run:
           $(aws ecr get-login --no-include-email --region us-east-1)
