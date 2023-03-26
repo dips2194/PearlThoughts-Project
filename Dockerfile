@@ -16,6 +16,6 @@ RUN npm install -g http-server
 
 ADD . /usr/apps/hello-docker/
 
-ADD index.html /usr/apps/hello-docker/index.html
+ADD index.js /usr/apps/hello-docker/index.js
 
 CMD ["http-server", "-s"]
