@@ -4,7 +4,7 @@
     "image": "nodeapp:latest",
     "portMappings": [
       {
-        "containerPort": 80,
+        "containerPort": 3000,
         "hostPort": 80
       }
     ],
