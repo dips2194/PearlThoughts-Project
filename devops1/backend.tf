@@ -4,7 +4,7 @@ terraform {
     bucket = "mukhed-1001"
     key    = "dips.tfstate"
     region = "us-east-1"
-    encrypt = false
+    encrypt = true
     dynamodb_table = "terraform-state-lock-dynamo"
     }
   }
